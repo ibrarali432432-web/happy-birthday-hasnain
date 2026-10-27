@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday Hasnain ❤️</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --red: #a90025;
+    --dark: #170009;
+    --pink: #ff456f;
+    --gold: #ffd98a;
+}
+
+body {
+    font-family: Georgia, 'Times New Roman', serif;
+    background: var(--dark);
+    color: white;
+    overflow: hidden;
+    min-height: 100vh;
+}
+
+.page {
+    position: fixed;
+    inset: 0;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 25px 18px;
+    overflow: hidden;
+    background:
+        radial-gradient(ellipse at top, #9e002c 0%, transparent 65%),
+        linear-gradient(145deg, #170009, #570017 55%, #130007);
+}
+
+.page.active {
+    display: flex;
+    animation: pageIn 0.8s ease both;
+}
+
+@keyframes pageIn {
+    from { opacity: 0; transform: scale(1.04); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+.content {
+    position: relative;
+    z-index: 5;
+    width: 100%;
+    max-width: 430px;
+    padding: 32px 23px;
+    border: 1px solid rgba(255, 217, 138, 0.4);
+    border-radius: 25px;
+    background: rgba(27, 0, 10, 0.53);
+    box-shadow:
+        0 0 35px rgba(255, 20, 80, 0.18),
+        inset 0 0 25px rgba(255, 255, 255, 0.025);
+    backdrop-filter: blur(8px);
+    transform-style: preserve-3d;
+    animation: floatCard 4s ease-in-out infinite;
+}
+
+@keyframes floatCard {
+    0%, 100% { transform: translateY(0) rotateX(0deg); }
+    50% { transform: translateY(-7px) rotateX(1deg); }
+}
+
+.eyebrow {
+    color: var(--gold);
+    font-size: 12px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    margin-bottom: 18px;
+}
+
+h1 {
+    color: #fff0f3;
+    font-size: clamp(35px, 10vw, 51px);
+    line-height: 1.15;
+    text-shadow: 0 0 20px #ff174e;
+    margin-bottom: 16px;
+}
+
+h2 {
+    color: var(--gold);
+    font-size: 27px;
+    margin-bottom: 20px;
+    line-height: 1.35;
+}
+
+p {
+    font-size: 16px;
+    line-height: 1.9;
+    color: #ffe2e9;
+    margin-bottom: 15px;
+}
+
+.name {
+    color: var(--gold);
+    font-style: italic;
+    text-shadow: 0 0 20px #ffb6c8;
+}
+
+.emoji {
+    font-size: 55px;
+    display: block;
+    margin-bottom: 17px;
+    filter: drop-shadow(0 0 15px #ff315f);
+    animation: heartbeat 1.8s infinite;
+}
+
+@keyframes heartbeat {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.12); }
+}
+
+.btn {
+    display: inline-block;
+    margin-top: 17px;
+    padding: 14px 32px;
+    border: 1px solid var(--gold);
+    border-radius: 50px;
+    color: #26000c;
+    background: linear-gradient(135deg, #ffe6a6, #ff9eae);
+    font-size: 15px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    cursor: pointer;
+    box-shadow: 0 0 22px rgba(255, 90, 130, 0.35);
+    transition: 0.3s;
+}
+
+.btn:hover {
+    transform: scale(1.06);
+    box-shadow: 0 0 30px #ff456f;
+}
+
+.page-number {
+    position: absolute;
+    bottom: 15px;
+    left: 0;
+    right: 0;
+    color: #ffbdcb;
+    opacity: 0.7;
+    font-size: 11px;
+    letter-spacing: 3px;
+    z-index: 5;
+}
+
+/* Flying birds */
+.bird {
+    position: fixed;
+    z-index: 2;
+    color: rgba(255, 224, 233, 0.65);
+    font-size: 23px;
+    pointer-events: none;
+    animation: fly linear infinite;
+}
+
+@keyframes fly {
+    0% {
+        transform: translateX(-15vw) translateY(0) scale(0.7);
+        opacity: 0;
+    }
+    10% { opacity: 0.8; }
+    50% { transform: translateX(50vw) translateY(-50px) scale(1); }
+    90% { opacity: 0.7; }
+    100% {
+        transform: translateX(115vw) translateY(15px) scale(0.8);
+        opacity: 0;
+    }
+}
+
+/* Floating hearts */
+.heart {
+    position: fixed;
+    z-index: 1;
+    bottom: -30px;
+    pointer-events: none;
+    animation: rise linear forwards;
+    filter: drop-shadow(0 0 8px #ff315f);
+}
+
+@keyframes rise {
+    0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 0;
+    }
+    15% { opacity: 0.8; }
+    100% {
+        transform: translateY(-115vh) rotate(35deg);
+        opacity: 0;
+    }
+}
+
+/* Birthday cake */
+.cake {
+    width: 115px;
+    height: 100px;
+    margin: 12px auto 25px;
+    position: relative;
+    filter: drop-shadow(0 10px 16px rgba(255, 0, 70, 0.25));
+    transform: perspective(300px) rotateX(-5deg);
+}
+
+.cake-top {
+    position: absolute;
+    width: 115px;
+    height: 32px;
+    border-radius: 50%;
+    top: 24px;
+    background: #ffb1c3;
+    border: 2px solid #ffe1a2;
+}
+
+.cake-body {
+    position: absolute;
+    top: 36px;
+    width: 115px;
+    height: 52px;
+    background: linear-gradient(90deg, #9e193c, #ff527c, #a20c34);
+    border-radius: 0 0 12px 12px;
+    border-bottom: 5px solid #ffcc86;
+}
+
+.candle {
+    position: absolute;
+    left: 55px;
+    top: -5px;
+    width: 7px;
+    height: 34px;
+    background: repeating-linear-gradient(
+        135deg, white 0 5px, #ff4e75 5px 10px
+    );
+    border-radius: 3px;
+}
+
+.flame {
+    position: absolute;
+    left: -3px;
+    top: -17px;
+    width: 13px;
+    height: 18px;
+    background: #ffd86e;
+    border-radius: 50% 50% 50% 0;
+    transform: rotate(-45deg);
+    box-shadow: 0 0 18px #ffb000;
+    animation: flicker 0.5s infinite alternate;
+}
+
+@keyframes flicker {
+    from { transform: rotate(-45deg) scale(0.9); }
+    to { transform: rotate(-40deg) scale(1.1); }
+}
+
+.divider {
+    width: 75px;
+    height: 1px;
+    margin: 19px auto;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+}
+
+.final-message {
+    font-size: 18px;
+    line-height: 1.9;
+    color: #fff0f3;
+}
+
+.signature {
+    color: var(--gold);
+    margin-top: 22px;
+    font-style: italic;
+    font-size: 18px;
+}
+
+.sparkle {
+    position: fixed;
+    z-index: 1;
+    pointer-events: none;
+    color: #ffe8a6;
+    animation: twinkle 2s infinite alternate;
+}
+
+@keyframes twinkle {
+    from { opacity: 0.15; transform: scale(0.7); }
+    to { opacity: 0.9; transform: scale(1.3); }
+}
+
+@media (max-height: 700px) {
+    .content {
+        padding: 22px 18px;
+    }
+    h1 { font-size: 35px; }
+    h2 { font-size: 23px; margin-bottom: 12px; }
+    p { font-size: 14px; line-height: 1.7; margin-bottom: 10px; }
+    .emoji { font-size: 42px; margin-bottom: 10px; }
+    .cake { margin-bottom: 12px; }
+    .btn { padding: 12px 26px; margin-top: 10px; }
+}
+</style>
+</head>
+
+<body>
+
+<!-- PAGE 1 -->
+<section class="page active" id="page1">
+
+    <div class="content">
+        <div class="eyebrow">A little surprise for you ✨</div>
+
+        <span class="emoji">🎁</span>
+
+        <h1>Hey,<br><span class="name">Hasnain</span> ❤️</h1>
+
+        <div class="divider"></div>
+
+        <p>
+            Someone special deserves<br>
+            something beautiful today...
+        </p>
+
+        <p>
+            And this little corner of the universe<br>
+            is made just for you. 🥀
+        </p>
+
+        <button class="btn" onclick="nextPage(2)">
+            OPEN YOUR SURPRISE ✨
+        </button>
+    </div>
+
+    <div class="page-number">01 — A LITTLE SURPRISE</div>
+</section>
+
+
+<!-- PAGE 2 -->
+<section class="page" id="page2">
+
+    <div class="content">
+        <div class="eyebrow">Your special day is here 🎂</div>
+
+        <div class="cake">
+            <div class="cake-body"></div>
+            <div class="cake-top"></div>
+            <div class="candle">
+                <div class="flame"></div>
+            </div>
+        </div>
+
+        <h2>Happy 23rd Birthday,<br><span class="name">Hasnain!</span> 🎉</h2>
+
+        <div class="divider"></div>
+
+        <p>
+            22 was a chapter of your life,<br>
+            and 23 is another beautiful beginning.
+        </p>
+
+        <p>
+            May Allah fill your life with happiness,
+            protect your smile, bless your dreams,
+            and give you success in everything you do. 🤍
+        </p>
+
+        <p>
+            May every new day bring you a reason
+            to be grateful and every prayer
+            bring you closer to your dreams. ✨
+        </p>
+
+        <button class="btn" onclick="nextPage(3)">
+            ONE LAST SURPRISE ❤️
+        </button>
+    </div>
+
+    <div class="page-number">02 — YOUR BEAUTIFUL CHAPTER</div>
+</section>
+
+
+<!-- PAGE 3 -->
+<section class="page" id="page3">
+
+    <div class="content">
+        <div class="eyebrow">Made with love & duas 🤍</div>
+
+        <span class="emoji">❤️‍🩹</span>
+
+        <h2>For You,<br><span class="name">Hasnain</span></h2>
+
+        <div class="divider"></div>
+
+        <div class="final-message">
+            On your special day, I just want
+            to wish you a life full of peace,
+            endless happiness, and beautiful memories. 🥀
+
+            <br><br>
+
+            May your heart always find peace,
+            your eyes always have dreams,
+            and your life always have reasons to smile.
+
+            <br><br>
+
+            <span style="color:#ffd98a">
+                You deserve all the beautiful things
+                this world has to offer.
+            </span>
+
+            <br><br>
+
+            May Allah always keep you happy,
+            healthy, successful, and blessed. Ameen. 🤲🏻
+        </div>
+
+        <div class="divider"></div>
+
+        <p style="font-size:22px; color:#ffd98a;">
+            Happy Birthday, Hasnain! 🎂❤️
+        </p>
+
+        <div class="signature">
+            With best wishes, always. 🫶🏻
+        </div>
+
+        <button class="btn" onclick="celebrate()">
+            CELEBRATE AGAIN 🎉
+        </button>
+    </div>
+
+    <div class="page-number">03 — A WISH FROM THE HEART</div>
+</section>
+
+
+<script>
+let currentPage = 1;
+
+function nextPage(pageNumber) {
+    document.getElementById("page" + currentPage)
+        .classList.remove("active");
+
+    currentPage = pageNumber;
+
+    document.getElementById("page" + currentPage)
+        .classList.add("active");
+
+    if (pageNumber === 3) {
+        celebrate();
+    }
+
+    window.scrollTo(0, 0);
+}
+
+
+// Flying birds
+function createBird() {
+    const bird = document.createElement("div");
+    bird.className = "bird";
+    bird.innerHTML = "⌁";
+
+    bird.style.top = (8 + Math.random() * 70) + "vh";
+    bird.style.left = "-30px";
+    bird.style.animationDuration = (8 + Math.random() * 9) + "s";
+    bird.style.fontSize = (18 + Math.random() * 15) + "px";
+
+    document.body.appendChild(bird);
+
+    setTimeout(() => bird.remove(), 18000);
+}
+
+setInterval(createBird, 1600);
+
+
+// Floating hearts
+function createHeart() {
+    const heart = document.createElement("div");
+    heart.className = "heart";
+
+    const symbols = ["❤️", "💕", "💗", "♥", "✨"];
+    heart.innerHTML = symbols[
+        Math.floor(Math.random() * symbols.length)
+    ];
+
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.fontSize = (12 + Math.random() * 20) + "px";
+    heart.style.animationDuration = (5 + Math.random() * 6) + "s";
+
+    document.body.appendChild(heart);
+
+    setTimeout(() => heart.remove(), 12000);
+}
+
+setInterval(createHeart, 650);
+
+
+// Twinkling stars
+for (let i = 0; i < 22; i++) {
+    const star = document.createElement("div");
+    star.className = "sparkle";
+    star.innerHTML = "✦";
+
+    star.style.left = Math.random() * 100 + "vw";
+    star.style.top = Math.random() * 100 + "vh";
+    star.style.animationDelay = Math.random() * 3 + "s";
+    star.style.fontSize = (7 + Math.random() * 10) + "px";
+
+    document.body.appendChild(star);
+}
+
+
+// Birthday celebration
+function celebrate() {
+    for (let i = 0; i < 35; i++) {
+        setTimeout(() => {
+            createHeart();
+        }, i * 100);
+    }
+}
+</script>
+
+</body>
+</html>
